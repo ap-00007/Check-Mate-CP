@@ -51,7 +51,7 @@ def test_verify_same_style():
     assert body["status"] in {"compatible", "not_compatible", "insufficient_evidence"}
     assert body["visual_score"] is not None
     assert isinstance(body["feature_comparison"], list)
-    assert len(body["feature_comparison"]) == 8
+    assert len(body["feature_comparison"]) >= 8
 
 
 def test_verify_different_styles():

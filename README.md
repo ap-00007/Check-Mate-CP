@@ -1,4 +1,4 @@
-# ✍️ CheckMate — NLP Course Project
+# CheckMate — NLP Course Project
 
 A handwriting verification web app built with **React + Vite + Tailwind CSS**.  
 Upload two handwriting samples and the app analyses similarity and displays an NLP-powered confidence score.

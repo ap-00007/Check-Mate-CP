@@ -1,11 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import router as api_router
+from app.ml.ocr import detect_device
+from app.ml.verifier import verification_service
 
 app = FastAPI(
     title="Check Mate API",
-    description="Handwriting author verification — Phase 1: Visual (OpenCV) analysis",
-    version="1.0.0",
+    description="Handwriting author verification and educational analysis system",
+    version="2.0.0",
 )
 
 # Allow all localhost origins and dev ports
@@ -20,6 +22,15 @@ app.add_middleware(
 
 app.include_router(api_router, prefix="/api/v1")
 
+
 @app.get("/health")
 def health():
-    return {"status": "ok", "phase": "1 — visual only"}
+    cfg = verification_service.config
+    return {
+        "status": "ok",
+        "phase": "2 — multi-modal visual + stylometry",
+        "device": detect_device(),
+        "calibrated_threshold": cfg.get("calibrated_threshold", 0.6111),
+        "alpha": cfg.get("alpha", 0.75),
+        "beta": cfg.get("beta", 0.25),
+    }
