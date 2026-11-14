@@ -1,0 +1,91 @@
+{
+  "alpha": 0.75,
+  "beta": 0.25,
+  "tuned_alpha": 0.0,
+  "tuned_beta": 1.0,
+  "calibrated_threshold": 0.6111031746031746,
+  "min_words_for_verification": 20,
+  "use_resnet": true,
+  "writer_id_source": "form_id_fallback",
+  "ablation_metrics": [
+    {
+      "model": "1. NLP-only",
+      "accuracy": 0.7,
+      "precision": 0.6765,
+      "recall": 0.7667,
+      "f1": 0.7188,
+      "roc_auc": 0.7556,
+      "far": 0.3667,
+      "frr": 0.2333,
+      "eer": 0.2833,
+      "eer_threshold": 0.538
+    },
+    {
+      "model": "2. Visual-only",
+      "accuracy": 0.85,
+      "precision": 0.7838,
+      "recall": 0.9667,
+      "f1": 0.8657,
+      "roc_auc": 0.9111,
+      "far": 0.2667,
+      "frr": 0.0333,
+      "eer": 0.1333,
+      "eer_threshold": 0.871
+    },
+    {
+      "model": "3a. Weighted Fusion (0.75/0.25)",
+      "accuracy": 0.8333,
+      "precision": 0.7778,
+      "recall": 0.9333,
+      "f1": 0.8485,
+      "roc_auc": 0.9444,
+      "far": 0.2667,
+      "frr": 0.0667,
+      "eer": 0.1667,
+      "eer_threshold": 0.5623
+    },
+    {
+      "model": "3b. Tuned Fusion (0.00/1.00)",
+      "accuracy": 0.85,
+      "precision": 0.7838,
+      "recall": 0.9667,
+      "f1": 0.8657,
+      "roc_auc": 0.9111,
+      "far": 0.2667,
+      "frr": 0.0333,
+      "eer": 0.1333,
+      "eer_threshold": 0.871
+    },
+    {
+      "model": "3c. Learned Meta-Fusion",
+      "accuracy": 0.85,
+      "precision": 0.7838,
+      "recall": 0.9667,
+      "f1": 0.8657,
+      "roc_auc": 0.9356,
+      "far": 0.2667,
+      "frr": 0.0333,
+      "eer": 0.0833,
+      "eer_threshold": 0.7315
+    }
+  ],
+  "opencv_only_threshold": 0.5328,
+  "opencv_only_metrics": {
+    "accuracy": 0.9664,
+    "f1": 0.9664,
+    "roc_auc": 0.9942,
+    "far": 0.0336,
+    "frr": 0.0336,
+    "threshold": 0.5616
+  },
+  "opencv_feature_cols": [
+    "vis_ink_density",
+    "vis_stroke_width_mean",
+    "vis_stroke_width_std",
+    "vis_slant_angle_mean",
+    "vis_slant_angle_std",
+    "vis_cc_aspect_mean",
+    "vis_cc_height_rel_std",
+    "vis_stroke_to_height_ratio"
+  ]
+}

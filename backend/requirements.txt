@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+pydantic-settings
+# ML — visual branch (Phase 1, no TrOCR / spaCy required)
+opencv-python-headless
+numpy
+scikit-learn
+joblib
+# Testing
+pytest
+httpx
